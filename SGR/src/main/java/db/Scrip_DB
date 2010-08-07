@@ -1,0 +1,104 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
+
+DROP SCHEMA IF EXISTS `sgr` ;
+CREATE SCHEMA IF NOT EXISTS `sgr` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+SHOW WARNINGS;
+DROP SCHEMA IF EXISTS `sgr` ;
+CREATE SCHEMA IF NOT EXISTS `sgr` DEFAULT CHARACTER SET latin1 ;
+SHOW WARNINGS;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`tb_dependencias`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`tb_dependencias` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `sgr`.`tb_dependencias` (
+  `id_dependencia` VARCHAR(5) NOT NULL ,
+  `txt_dependencia` VARCHAR(60) NOT NULL ,
+  PRIMARY KEY (`id_dependencia`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`tb_usuarios`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`tb_usuarios` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `sgr`.`tb_usuarios` (
+  `id_usuario` VARCHAR(11) NOT NULL ,
+  `txt_contraseña` VARCHAR(20) NOT NULL ,
+  `txt_nombre` VARCHAR(60) NOT NULL ,
+  `tp_tipo_usuario` VARCHAR(1) NOT NULL ,
+  `txt_correo_electronico` VARCHAR(60) NOT NULL ,
+  `tb_dependencias_id_dependencia` VARCHAR(5) NOT NULL ,
+  PRIMARY KEY (`id_usuario`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `sgr`.`tb_requerimiento`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`tb_requerimiento` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `sgr`.`tb_requerimiento` (
+  `ano_ejercicio` VARCHAR(4) NOT NULL ,
+  `cod_requerimiento` INT(11) NOT NULL ,
+  `txt_asunto` VARCHAR(50) NOT NULL ,
+  `fec_registro` DATE NOT NULL ,
+  `tb_usuarios_id_usuario` VARCHAR(11) NOT NULL ,
+  `txt_descripcion` VARCHAR(50) NOT NULL ,
+  `fl_estado` BIT(1) NOT NULL ,
+  `fec_estado` DATE NOT NULL ,
+  `tb_requerimientocol` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`ano_ejercicio`, `cod_requerimiento`) )
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`tb_tipo_acciones`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`tb_tipo_acciones` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `sgr`.`tb_tipo_acciones` (
+  `id_tipo_accion` INT NOT NULL ,
+  `txt_descripcion_accion` VARCHAR(45) NOT NULL ,
+  PRIMARY KEY (`id_tipo_accion`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`tb_requerimiento_acciones`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `sgr`.`tb_requerimiento_acciones` ;
+
+SHOW WARNINGS;
+CREATE  TABLE IF NOT EXISTS `sgr`.`tb_requerimiento_acciones` (
+  `tb_requerimiento_ANO_EJERCICIO` VARCHAR(4) NOT NULL ,
+  `tb_requerimiento_COD_REQ` INT(11) NOT NULL ,
+  `nro_correlativo_accion` INT NOT NULL ,
+  `tb_usuarios_id_usuario` VARCHAR(11) NOT NULL ,
+  `tb_tipo_acciones_id_tipo_accion` INT NOT NULL ,
+  `fe_fecha_accion_realizada` DATE NOT NULL ,
+  `txt_descripcion_accion_realizada` TEXT NOT NULL ,
+  PRIMARY KEY (`tb_requerimiento_ANO_EJERCICIO`, `tb_requerimiento_COD_REQ`) )
+ENGINE = InnoDB;
+
+SHOW WARNINGS;
+USE `sgr` ;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
