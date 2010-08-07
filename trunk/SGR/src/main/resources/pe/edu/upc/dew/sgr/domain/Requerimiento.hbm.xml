@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="pe.edu.upc.dew.sgr.domain">
+    <class name="Requerimiento" table="TB_REQUERIMIENTO">
+        <id name="cod_req" column="COD_REQ">
+            <generator class="increment"/>
+        </id>
+        <property name="ano_ejercicio" column="ANO_EJERCICIO"/>
+        <property name="txt_asunto" column="TXT_ASUNTO"/>
+        <property name="fec_registro" column="FEC_REGISTRO"/>
+        <property name="cod_usuario" column="COD_USUARIO"/>
+        <property name="txt_descripcion" column="TXT_DESCRIPCION"/>
+        <property name="fl_estado" column="FL_ESTADO"/>
+        <property name="fec_estado" column="FEC_ESTADO"/>
+    </class>
+</hibernate-mapping>
