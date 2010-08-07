@@ -1,0 +1,23 @@
+.stborder01{
+border: 1px solid #CFE2ED;
+}
+.sttxt_tit{
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:15px;
+	color:#FFFFFF;
+}
+.sttxt01{
+	font-family:Verdana;
+	font-size:11px;
+	color:#2E566F;
+}
+.stbtn01{
+	border:0px;
+	height:25px;
+	font-weight:bold;
+	font-family: Verdana,Arial;
+	font-size: 11px;
+	color: #FFFFFF;
+	background-color:#8FBDD6;
+}
