@@ -8,4 +8,6 @@ import pe.edu.upc.dew.sgr.domain.Usuario;
 
 public interface UsuarioRepository {
     public Usuario getUsuarioPorUsername(String username);
+
+    public Usuario getUsuarioPorCodigo(int codigo);
 }

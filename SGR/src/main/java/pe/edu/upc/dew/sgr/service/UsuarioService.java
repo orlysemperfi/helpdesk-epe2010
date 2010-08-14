@@ -9,4 +9,6 @@ import pe.edu.upc.dew.sgr.domain.Usuario;
 
 public interface UsuarioService {
     public Usuario getUsuarioPorUsername(String val);
+    
+    public Usuario getUsuarioPorCodigo(int val);
 }

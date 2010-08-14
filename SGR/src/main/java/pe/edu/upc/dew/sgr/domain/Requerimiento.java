@@ -12,8 +12,10 @@ public class Requerimiento {
     private String txt_asunto;
     private Date fec_registro;
     private int cod_usuario;
+    private String txt_nombre;
     private String txt_descripcion;
     private int  fl_estado;
+    private String txt_estado;
     private Date fec_estado;
 
     public String getAno_ejercicio() {
@@ -40,6 +42,14 @@ public class Requerimiento {
         this.cod_usuario = cod_usuario;
     }
 
+    public String getTxt_nombre() {
+        return txt_nombre;
+    }
+
+    public void setTxt_nombre(String txt_nombre) {
+        this.txt_nombre = txt_nombre;
+    }
+
     public Date getFec_registro() {
         return fec_registro;
     }
@@ -62,6 +72,14 @@ public class Requerimiento {
 
     public void setFl_estado(int fl_estado) {
         this.fl_estado = fl_estado;
+    }
+
+    public String getTxt_estado() {
+        return txt_estado;
+    }
+
+    public void setTxt_estado(String txt_estado) {
+        this.txt_estado = txt_estado;
     }
 
     public String getTxt_asunto() {

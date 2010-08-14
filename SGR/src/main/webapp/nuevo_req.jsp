@@ -1,36 +1,60 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<title>GESTION DE REQUERIMIENTOS</title>
-<link href="styles/estilos.css" rel="stylesheet" type="text/css" />
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/light.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Gestión de Requerimientos</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/validate/jquery.validate.js" ></script>
+<script type="text/javascript" src="js/validate/reglas.js" ></script>
+<script type="text/javascript" src="js/function.js"></script>
 </head>
-<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#E8E8E8">
-<table cellpadding="0" cellspacing="0" width="100%" height="100%">
-<tr><td align="center" valign="middle" >
-	<table cellpadding="0" cellspacing="0" bgcolor="#DCDCDC" class="stborder01">
-	<tr><td height="40" bgcolor="#2E566F" align="center" class="sttxt_tit">NUEVO REQUERIMIENTO
-	<tr><td align="center" bgcolor="#CEE2ED">
-    	<table cellpadding="0" cellspacing="0">
-        <tr><td width="10">
-        	<td><table cellpadding="0" cellspacing="0">
-            <tr><td colspan="5" height="10">
-			<tr><td class="sttxt01"><b>Usuario</b><td width="10"><td>:<td width="10"><td><input name="txt_usuario" type="text" class="sttxt01">
-			<tr><td colspan="5" height="10">
-			<tr><td class="sttxt01"><b>Asunto</b><td width="10"><td>:<td width="10"><td><input name="txt_asunto" type="text" class="sttxt01" id="txt_asunto">
-			<tr><td colspan="5" height="10">
-			<tr><td colspan="5" align="left" class="sttxt01"><b>Detalle :</b>
-			<tr><td colspan="5" height="10">
-			<tr><td colspan="5"><textarea name="txt_detalle" cols="50" rows="8" class="sttxt01" id="txt_detalle"></textarea>
-			<tr><td colspan="5" height="10">
-			<tr><td colspan="5" align="center">
-				<input name="cmd1" type="button" class="stbtn01" id="cmd1" value="Enviar" />
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<input name="cmd2" type="button" class="stbtn01" id="cmd2" value="Cancelar" />
-           	<tr><td colspan="5" height="10">
-			</table>
-            <td width="10">
-        </table>
+<body id="bg">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<div id="wrap">
+<div id="content-wrap2">
+	<table>
+		<tr>
+			<td></td>
+		</tr>
 	</table>
-</table>
+  </div>
+</div>
+<div id="header">
+	<h1 id="siglas-sistema"><img src="images/logo-a.png" /></h1>
+</div>
+<div id="wrap">
+    <div id="content-wrap">
+		<center><form class="validform formulario" id="formulario" name="formulario" method="post" action="NuevoRequerimientoController">
+		<fieldset>
+			<legend><b> NUEVO REQUERIMIENTO </b></legend>
+			<p>
+				<label>Usuario</label> 
+                                <input name="txt_nombre" type="text" class="required" id="nombre" style="width:50%" value='${nombres}'/>
+                                <input name="txt_codigo" type="hidden" class="required" id="nombre" style="width:5%" value='${codigo}'/>
+			</p>
+			<p><label>Asunto</label>
+				<input name="txt_asunto" type="text" class="required" id="asunto" style="width:50%"/>
+			</p>
+			<p><label>Detalle</label>
+				<textarea name="txt_detalle" id="detalle" cols="70%"></textarea>
+			</p>
+			<p class="boton">
+				<input name="submit" type="submit" class="btsimple" value="Enviar"/>
+				<input name="Submit3" type="submit" class="btsimple" value="Cancelar"/>
+			</p>
+		</fieldset>
+		</form>
+		</center>
+	</div>
+	<div id="content-wrap1">
+	<table>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	</div>
+</div>
 </body>
 </html>

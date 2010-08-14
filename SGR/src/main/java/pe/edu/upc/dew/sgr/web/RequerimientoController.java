@@ -9,15 +9,33 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import pe.edu.upc.dew.sgr.domain.Requerimiento;
+import pe.edu.upc.dew.sgr.domain.Usuario;
 import pe.edu.upc.dew.sgr.repository.RequerimientoRepository;
+import pe.edu.upc.dew.sgr.service.RequerimientoService;
+import pe.edu.upc.dew.sgr.service.UsuarioService;
 
 /**
  *
  * @author Administrador
  */
 public class RequerimientoController extends HttpServlet {
-   
+
+    private UsuarioService usuarioService;
+    private RequerimientoService requerimientoService;
+
+    ArrayList<Requerimiento> requerimientos =
+                new ArrayList<Requerimiento>();
+
+    @Override
+    public void init() throws ServletException {
+         BeanFactory beanfactory = WebApplicationContextUtils.getRequiredWebApplicationContext(getServletContext());
+         usuarioService = (UsuarioService) beanfactory.getBean("usuarioService");
+         requerimientoService = (RequerimientoService) beanfactory.getBean("requerimientoService");
+    }
+
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
      * @param request servlet request
@@ -70,17 +88,29 @@ public class RequerimientoController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         //processRequest(request, response);
-        int username = Integer.parseInt(request.getParameter("txt_usuario"));
-        String password = request.getParameter("txt_contrasena");
+        String mensaje = "";
+        Usuario usuario = null;
 
-//        RequerimientoRepository repository;
-//
-//        List<Requerimiento> requerimientos =
-//                new List<Requerimiento>();
-//
-//        requerimientos.add(repository.obtenerRequerimientosPorUsuario(username));
+        int codigo = Integer.parseInt(request.getParameter("txt_codigo"));
 
+        usuario = usuarioService.getUsuarioPorCodigo(codigo);
 
+        if (usuario==null){
+            mensaje = "Usuario no existe";
+            request.setAttribute("mensaje", mensaje);
+            request.getRequestDispatcher("mensajeerror.jsp").forward(request, response);
+        }
+        else{
+            int cod_usuario = usuario.getCod_usuario();
+            String nombre_completo = usuario.getTxt_nombres() + ' ' + usuario.getTxt_apellido_paterno() + ' ' +  usuario.getTxt_apellido_materno();
+
+            List<Requerimiento> requerimientos = requerimientoService.obtenerRequerimientosPorUsuario(cod_usuario);
+
+            request.setAttribute("codusuario", cod_usuario);
+            request.setAttribute("nombres", nombre_completo);
+            request.setAttribute("requerimientos", requerimientos);
+            request.getRequestDispatcher("lista_req_usuario.jsp").forward(request, response);
+            }
     }
 
     /** 

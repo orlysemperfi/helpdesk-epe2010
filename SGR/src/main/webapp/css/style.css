@@ -1,0 +1,127 @@
+* { margin: 0; 
+    padding: 0;
+    outline: 0;}
+#bg{
+background: #245B84 url('../images/main_bg.jpg') ;
+}
+body{
+    font: 70%/1.5em Arial, Tahoma, Sans-serif;}
+a:link {
+	color: #D8F2F7;
+	text-decoration:none;
+	font-size:10px;	}
+a:visited {
+	color: #D8F2F7;
+	text-decoration:none;
+	font-size:10px;}
+a:hover {
+	color: #8AD6E6;font-size:10px;}
+a:active {
+	color: #D8F2F7;
+	text-decoration:none;font-size:10px;}
+h1 {font-size: 180%;}
+h3 { color:#8AD6E6; font:bold;}
+.usuarios { color:#20BDEE}
+.fechas { color:#A0B9C1; font-size:10px;}
+#header {
+    position: relative;
+    height: 55px;
+	left:0px;
+	width: 100%;
+	background-color:#072342;
+    color: #FFfffF;} 
+#header h1#siglas-logeo{
+font: bolder 30px Arial, Tahoma, Sans-serif;
+color:#999900;}
+#header h1#siglas-sistema{
+    position: absolute; 
+    color: #FFFFFF;
+    font: bolder 30px Arial, Tahoma, Sans-serif;
+    letter-spacing: -1px;
+    text-transform: none;
+    text-decoration: none;
+    background: transparent;
+    top: 8%; 
+	left: 25%;}
+#wrap-logeo {
+    width: 530px;
+	position: absolute;
+	top: 10%;
+	left: 50%;
+	margin-left: -290px;}
+#wrap {
+    width: 790px;
+    margin: 0px auto;
+    text-align: left;}	
+#content-logeo {
+	clear: both;
+	width: 100%;
+	padding: 5px 0 30px 0;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	background: url('../images/color-a.png') center top;}
+#content-wrap {
+	clear: both;
+	padding: 5px 0 5px 0;
+	width: 790px;
+	background: url('../images/fondo.png') center top;}
+#content-wrap1 {
+	clear: both;
+	width: 790px;
+	height: 75px;
+	background: url('../images/fondo1.png') center top;}
+#content-wrap2 {
+	clear: both;
+	width: 790px;
+	height: 40px;
+	background: url('../images/fondo2.png') center top;}
+fieldset{
+	border: 0px;
+	padding:2px 2px;
+	margin: 1%;
+	width: 94%;}
+legend,caption{
+	color: #072342;
+	font-family:Tahoma; 
+	font-weight:bold;
+	border:0px;
+	height:20px; 
+	padding: 1px 1px; 
+	text-align:left}
+/*VALIDACIONES Y FORMULARIOS*/
+.formulario label { width: 5%; color:#0066CC; text-align:right}
+.formulario label.ancho { width:22%; font-weight: bold;}
+.formulario label.error { margin-left: 1%; width: 2%; font-size:10px; color:#FF0000}
+.formulario label.msj { margin-left: 4%; width: 66%; color:#0066CC; text-align:left}
+.formulario label.coment { margin-left: 4%; width: 12%; color:#0066CC; text-align:left}
+.formulario p.boton{ margin: 0% 0% 0% 6%; text-align:left;}
+.formulario p.parrafo{ margin: 0% 0% 0% 22%; text-align:left;}
+.formulario p.comentarios{ margin: 0% 0% 0% 2%; text-align:left;}
+form.validform label {
+	display: inline-block;
+	line-height: 1.8;
+	vertical-align: top;}
+form.validform fieldset p {
+	list-style: none;
+	padding: 2px;
+	margin: 0;}
+.formulario{
+    border:solid 1px #b7ddf2;
+    background:#E6F0F2;
+    width: 93.6%;
+	text-align:left;}
+input.bt{
+   background-image: url(../images/button.gif);
+   font-size:11px;
+   color:#fff;
+   border:solid 1px #E2E2E2;
+   height:24px;
+  }
+ input.btsimple{
+   background-image: url(../images/button.gif);
+   font-size:11px;
+   color:#fff;
+   border:solid 1px #E2E2E2;
+   height:24px;
+   width:80px;
+  }

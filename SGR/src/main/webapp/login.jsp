@@ -1,50 +1,40 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head>
-<title>GESTION DE REQUERIMIENTOS</title>
-<link href="styles/estilos.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/style_form.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Sistema de Gestión de Requerimientos</title>
+<script type="text/javascript" src="js/function.js"></script>
 </head>
-<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#E8E8E8">
-<table cellpadding="0" cellspacing="0" width="100%" height="100%">
-<tr><td align="center" valign="middle">
-        <br>
-        <br>
-        <br>
-        <br>
-	<table cellpadding="0" cellspacing="0" class="stborder01">
-	<tr><td height="40" bgcolor="#2E566F" align="center" class="sttxt_tit">ACCESO A USUARIOS
-	<tr><td align="center" bgcolor="#CEE2ED">
-                <form name="FrmDatos" action="LoginController" method="POST">
-			<table cellpadding="0" cellspacing="0" class="sttxt01">
-            <tr><td colspan="7" height="10">
-			<tr><td width="10">
-				<td><b>Usuario</b>
-				<td width="10">
-				<td>:
-				<td width="10">
-				<td><input name="txt_usuario" type="text" class="sttxt01">
-				<td width="10">
-                        <tr><td colspan="7" height="10">
-                        <tr><td width="10">
-                                <td><b>Contraseña</b>
-                                <td width="10">
-                                <td>:
-                                <td width="10">
-                                <td><input name="txt_password" type="text" class="sttxt01" id="txt_contrasena">
-                                <td width="10">
-                        <tr><td colspan="7" height="10">
-                        <tr><td colspan="7" align="center">
-				<input name="cmd1" type="submit" class="stbtn01" id="cmd1" value="Aceptar" />
-				&nbsp;&nbsp;&nbsp;&nbsp;
-				<input name="cmd2" type="button" class="stbtn01" id="cmd2" value="Cancelar" />
-		    <tr><td colspan="7" height="10">
-			</table>
-                </form>
-	</table>
-</table>
+<body id="bg">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<div id="wrap-logeo">
+    <div id="content-logeo">
+<div class="login">
+	<div class="login-in">
+		<div class="logo-name">
+			<br /><h1 id="siglas-logeo"><center><img src="images/logo-a.png" /></center></h1>
+			<h3><center>Ingreso de Usuarios</center></h3><br /><br />
+		</div>
+		<form id ="loginform" action="LoginController" name ="FrmDatos" method="post">
+			<fieldset>
+			<div class="row">
+				<label for="username" class="username"></label>
+				<input type="text" class="text" name="txt_usuario" id="username" required = "1" realname = "Name" />
+			</div>
+			<div class="row">
+				<label for="pass" class="pass"></label>
+				<input type="password" class="text" name="txt_password" id="pass" required = "0" realname = "Password" />
+			</div>
+			<div class="row">
+				<button type="submit" class="loginbutn" title="Login" onfocus="this.blur();"></button>
+			</div>
+			</fieldset>
+		</form>
+	</div>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
-
