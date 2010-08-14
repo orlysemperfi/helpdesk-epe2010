@@ -13,7 +13,7 @@ public class Usuario {
         String txt_nombres;
         String txt_doc_identidad;
         int cod_dependencia;
-        boolean fl_tipo_usuario;
+        int fl_tipo_usuario;
 
     public int getCod_usuario() {
         return cod_usuario;
@@ -79,11 +79,11 @@ public class Usuario {
         this.cod_dependencia = cod_dependencia;
     }
 
-    public boolean isFl_tipo_usuario() {
+    public int getFl_tipo_usuario() {
         return fl_tipo_usuario;
     }
 
-    public void setFl_tipo_usuario(boolean fl_tipo_usuario) {
+    public void setFl_tipo_usuario(int fl_tipo_usuario) {
         this.fl_tipo_usuario = fl_tipo_usuario;
     }
 }

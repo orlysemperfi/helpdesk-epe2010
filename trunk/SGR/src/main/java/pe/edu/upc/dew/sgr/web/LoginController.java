@@ -59,24 +59,35 @@ public class LoginController extends HttpServlet {
         if (usuario==null){
             mensaje = "Usuario no existe";
             request.setAttribute("mensaje", mensaje);
-            request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+            request.getRequestDispatcher("mensajeerror.jsp").forward(request, response);
         }
         else{
             if (usuario.getTxt_password().equals(password)){
+                if(usuario.getFl_tipo_usuario()== 2){
+                    int cod_usuario = usuario.getCod_usuario();
+                    String nombre_completo = usuario.getTxt_nombres() + ' ' + usuario.getTxt_apellido_paterno() + ' ' +  usuario.getTxt_apellido_materno();
 
-                int cod_usuario = usuario.getCod_usuario();
-                String nombre_completo = usuario.getTxt_nombres() + ' ' + usuario.getTxt_apellido_paterno() + ' ' +  usuario.getTxt_apellido_materno();
+                    List<Requerimiento> requerimientos = requerimientoService.obtenerRequerimientosPorUsuario(cod_usuario);
 
-                List<Requerimiento> requerimientos = requerimientoService.obtenerRequerimientosPorUsuario(cod_usuario);
+                    request.setAttribute("codusuario", cod_usuario);
+                    request.setAttribute("nombres", nombre_completo);
+                    request.setAttribute("requerimientos", requerimientos);
+                    request.getRequestDispatcher("lista_req_usuario.jsp").forward(request, response);
+                }else{
+                    int cod_usuario = usuario.getCod_usuario();
+                    String nombre_completo = usuario.getTxt_nombres() + ' ' + usuario.getTxt_apellido_paterno() + ' ' +  usuario.getTxt_apellido_materno();
 
-                request.setAttribute("codusuario", cod_usuario);
-                request.setAttribute("nombres", nombre_completo);
-                request.setAttribute("requerimientos", requerimientos);
-                request.getRequestDispatcher("lista_req_usuario.jsp").forward(request, response);
+                    List<Requerimiento> requerimientos = requerimientoService.obtenerRequerimientos();
+
+                    request.setAttribute("codusuario", cod_usuario);
+                    request.setAttribute("nombres", nombre_completo);
+                    request.setAttribute("requerimientos", requerimientos);
+                    request.getRequestDispatcher("lista_req_admin.jsp").forward(request, response);
+                }
             }else{
                 mensaje = "Password incorrecto";
                 request.setAttribute("mensaje", mensaje);
-                request.getRequestDispatcher("mensaje.jsp").forward(request, response);
+                request.getRequestDispatcher("mensajeerror.jsp").forward(request, response);
             }
         }
     }

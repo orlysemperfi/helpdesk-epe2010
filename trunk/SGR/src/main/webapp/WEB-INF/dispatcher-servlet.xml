@@ -42,4 +42,15 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="requerimientoService" ref="requerimientoService"/>
     </bean>
 
+    <bean id="RequerimientoController"
+        class="pe.edu.upc.dew.sgr.web.RequerimientoController">
+        <property name="usuarioService" ref="usuarioService"/>
+        <property name="requerimientoService" ref="requerimientoService"/>
+    </bean>
+
+    <bean id="NuevoRequerimientoController"
+        class="pe.edu.upc.dew.sgr.web.NuevoRequerimientoController">
+        <property name="requerimientoService" ref="requerimientoService"/>
+    </bean>
+
 </beans>

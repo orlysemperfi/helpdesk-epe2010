@@ -1,0 +1,19 @@
+input,select{
+    background-image: url(../images/bktexarea.gif);
+	color:#515151;
+    background-repeat:repeat-x;
+    padding:1px 1px;
+    border:solid 1px #00A8E6;
+    margin:0px 0 5px 5px;
+	height:18px;}
+textarea{
+    background-image: url(../images/bktexarea.gif);
+	color:#515151;
+    background-repeat:repeat-x;
+    padding:1px 1px;
+    border:solid 1px #00A8E6;
+    margin:0px 0 5px 5px;
+	height:78px;}
+input:focus,textarea:focus,select:focus{
+    border:solid 1px #00A8E6;
+	background-image: url(../images/bktexarea1.gif);}

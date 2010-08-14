@@ -1,64 +1,94 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
             prefix="c" %>
-
-<html>
+			
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
 <head>
-<title>GESTION DE REQUERIMIENTOS</title>
-<link href="styles/estilos.css" rel="stylesheet" type="text/css" />
-</head>
-<script language="javascript">
-	function abre(){
-		window.open("nuevo_req.jsp" , "ventana1" , "width=450,height=300,scrollbars=NO")
-	}
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/light.css" rel="stylesheet" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>GestiÃ³n de Requerimientos</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/validate/jquery.validate.js" ></script>
+<script type="text/javascript" src="js/validate/reglas.js" ></script>
+<script type="text/javascript" src="js/uiscripts/jquery.ui.core.js"></script>
+<script type="text/javascript" src="js/uiscripts/jquery.ui.datepicker.js"></script>
+<script type="text/javascript" src="js/function.js"></script>
+<script type="text/javascript">
+$(function() {
+	$('#date').datepicker({
+		showOn: 'button',
+		buttonImage: 'js/uiscripts/images/calendar.gif',
+		changeMonth: true,
+		changeYear: true
+	});
+});
 </script>
-<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0" bgcolor="#E8E8E8">
-<table cellpadding="0" cellspacing="0" width="100%" height="100%">
-<tr><td align="center" valign="middle">
-	<table cellpadding="0" cellspacing="0" class="stborder01" bgcolor="#DCDCDC">
-	<tr><td width="895" height="40" align="center" bgcolor="#2E566F" class="sttxt_tit">SOLICITUD DE REQUERIMIENTOS
-	<tr><td align="center"  bgcolor="#CEE2ED">
-			<table cellpadding="0" cellspacing="0" class="sttxt01">
-            <tr><td colspan="9" height="10">
-			<tr><td width="1"><td width="316"><b>Usuario</b><td width="41"><td width="20">:<td width="41">
-			  <td width="210">${nombres}
-			  <td width="141"><strong>Id</strong>              
-			  <td width="81">${codusuario}
-			    
-			  <td width="169">
-			<tr><td colspan="9" height="10">
-			<tr><td width="1"><td><b>Fecha y Hora</b><td width="41"><td>:<td width="41">
-			  <td><input name="txt_fecha" type="text" class="sttxt01" id="txt_fecha">              
-			  <td>              
-			  <td>			    
-			  <td width="169">
-			<tr><td colspan="9" height="10">
-			<tr><td width="1"><td colspan="7" align="left"><b>Historial de Requerimientos</b><td width="169">
-			<tr><td colspan="9" height="10">
-			<tr>
-			  <td colspan="9">
-        <table>
-            <tr>
-                <td>Año</td>
-                <td>Asunto</td>
-                <td>Descripción</td>
-            </tr>
-            <c:forEach items="${requerimientos}" var="req">
-                <tr>
-                    <td>${req.ano_ejercicio}</td>
-                    <td>${req.txt_asunto}</td>
-                    <td>${req.txt_descripcion}</td>
-                </tr>
-            </c:forEach>
-        </table>
-			<tr><td width="1">
-			  <td colspan="7" align="left">
-			    
-			  <td width="169">
-			<tr><td colspan="9" height="10">
-			<tr><td width="1"><td colspan="7" align="right"><input name="cmd1" type="button" class="stbtn01" id="cmd1" value="Nuevo Requerimiento" onClick="abre();"><td width="169">
-			<tr><td colspan="9" height="10">
-			</table> 
+<link rel="stylesheet" type="text/css" href="js/uiscripts/calendar.css"/>
+</head>
+<body id="bg">
+<link rel="shortcut icon" href="images/favicon.ico" />
+<div id="wrap">
+<div id="content-wrap2">
+	<table>
+		<tr>
+			<td></td>
+		</tr>
 	</table>
-</table>
+  </div>
+</div>
+<div id="header">
+	<h1 id="siglas-sistema"><img src="images/logo-a.png" /></h1>
+</div>
+<div id="wrap">
+    <div id="content-wrap">
+		<center><form class="validform formulario" id="formulario" name="formulario" method="get" action="NuevoRequerimientoController">
+		<fieldset>
+			<legend><b> SOLICITUD DE REQUERIMIENTOS </b></legend>
+			<p>
+				<label>Usuario</label> 
+				<input name="nombre" type="text" class="required" id="nombre" style="width:50%" value='${nombres}'/>
+				<input name="codigo" type="hidden" class="required" id="codigo" style="width:5%" value='${codusuario}'/>
+			</p>
+			<p><label>Fecha</label>
+				<input name="f1" id="date" style="width:10%" class="required date" maxlength="10"/>
+				<input name="Submit3" type="submit" class="btsimple" value="Nuevo Requerimiento"/>
+			</p>
+		</fieldset>
+		</form>
+		<br />
+		<table width="98%" border="0" class="formulario">
+		<caption>HISTORIAL DE REQUERIMIENTOS</caption>
+			<thead>
+				<tr>
+					<th width="5%">Nro.</th>
+					<th width="10%">Fec. Req</th>
+					<th width="60%">Descripcion</th>
+					<th width="15%">Estado</th>
+					<th width="10%">Fec. Atenc.</th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach items="${requerimientos}" var="req">
+				<tr bgcolor="#DAE6F0" onmouseover="this.style.backgroundColor='#FFFFC0';this.style.cursor='hand';" onmouseout="this.style.backgroundColor='#DAE6F0';">
+					<td>${req.cod_requerimiento}</td>
+					<td>${req.fec_registro}</td>
+					<td>${req.txt_descripcion}</td>
+					<td>${req.txt_estado}</td>
+					<td>${req.fec_estado}</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		</center>
+	</div>
+	<div id="content-wrap1">
+	<table>
+		<tr>
+			<td></td>
+		</tr>
+	</table>
+	</div>
+</div>
 </body>
 </html>

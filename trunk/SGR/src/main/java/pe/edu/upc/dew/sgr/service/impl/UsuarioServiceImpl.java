@@ -22,4 +22,8 @@ public class UsuarioServiceImpl
 
     }
 
+    public Usuario getUsuarioPorCodigo(int val) {
+        return usuarioRepository.getUsuarioPorCodigo(val);
+    }
+
 }
